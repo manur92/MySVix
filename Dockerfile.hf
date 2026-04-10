@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+# Installa git (necessario su Alpine)
+RUN apk add --no-cache git
+
+WORKDIR /app
+
+# Clona il repository direttamente nella cartella /app
+RUN git clone https://github.com/vostrousergithub/vostroforkname .
+
+# Installa le dipendenze
+RUN npm install
+
+# HF usa la porta 7860
+ENV PORT=7860
+EXPOSE 7860
+
+# Compila l'addon
+RUN npm run build
+
+CMD ["npm", "start"]

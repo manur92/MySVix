@@ -1,0 +1,27 @@
+{
+  "name": "vix-simple-addon-workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/addon.ts",
+  "type": "commonjs",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/addon.js",
+    "dev": "ts-node -O \"{\\\"module\\\":\\\"commonjs\\\", \\\"verbatimModuleSyntax\\\":false}\" src/addon.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.21.1",
+    "stremio-addon-sdk": "^1.6.10",
+    "undici": "^6.20.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
