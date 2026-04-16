@@ -47,7 +47,7 @@ async function getEmbedUrlFromApi(tmdbId: string, season?: string, episode?: str
     }
 }
 
-export async function getVixSrcStreams(tmdbId: string, season?: string, episode?: string): Promise<{name: string, title: string, url: string}[]> {
+export async function getVixSrcStreams(tmdbId: string, season?: string, episode?: string, preferredLang?: string): Promise<{name: string, title: string, url: string}[]> {
     try {
         const siteOrigin = `https://${config.vixsrcDomain}`;
         
@@ -110,9 +110,10 @@ export async function getVixSrcStreams(tmdbId: string, season?: string, episode?
         const canPlayFHD = /window\.canPlayFHD\s*=\s*true/i.test(scriptContent) || /canPlayFHD/.test(scriptContent);
         
         const urlObj = new URL(serverUrl);
+        const lang = preferredLang || 'en';
         urlObj.searchParams.set('token', token);
         urlObj.searchParams.set('expires', expires);
-        urlObj.searchParams.set('lang', 'en');
+        urlObj.searchParams.set('lang', lang);
         if (asn) urlObj.searchParams.set('asn', asn);
         if (canPlayFHD) urlObj.searchParams.set('h', '1');
 
