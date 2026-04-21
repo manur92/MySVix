@@ -6,7 +6,7 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 # Clona il repository direttamente nella cartella /app
-RUN git clone https://github.com/manur92/MySVix .
+RUN git clone https://github.com/vostrousergithub/vostroforkname .
 
 # Installa le dipendenze
 RUN npm install
